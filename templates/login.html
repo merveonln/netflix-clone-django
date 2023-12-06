@@ -1,0 +1,89 @@
+{% extends "index.html" %} {%load static%}
+{% block content %}
+<style>
+  h2 {
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .hero-image {
+    height: 100%;
+  }
+
+  .hero-text {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 500px;
+    top: 30%;
+    margin-top: 100px;
+  }
+
+  .hero-text2 {
+    width: 75%;
+    margin: auto;
+  }
+
+  .form-control {
+    background-color: rgb(34, 34, 34);
+    border: none;
+  }
+
+  .p-grey {
+    color: grey;
+  }
+
+  .con-footer {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  @media screen and (max-width: 700px) {
+    .hero-image {
+      background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)),
+      url("{% static 'img/arkaplan.jpg' %}");
+    }
+  }
+</style>
+</head>
+
+<body>
+  <div class="hero-image">
+    <!-- navbar -->
+    {% include "includes/_navbar.html" %}
+
+    <div class="hero-text">
+      <!-- form -->
+      <form action="" class="hero-text2 mt-5 mb-5" method="POST">
+        {%csrf_token%}
+
+        <h2>Oturum Aç</h2>
+
+        <div class="mb-3">
+          <input type="text" name="username" class="form-control form-control-lg"
+            placeholder="E-posta veya telefon numarası" />
+          <input type="password" name="password" class="form-control form-control-lg mt-3" />
+        </div>
+        <div class="d-grid gap-2">
+          <button class="btn btn-danger btn-lg" type="submit">
+            Oturum Aç
+          </button>
+        </div>
+
+        <div class="form-check text-start mt-2">
+          <input type="checkbox" name="" id="" class="form-check-input" />
+          <label for="" class="form-check-label"> Beni Hatırla </label>
+        </div>
+
+        <p class="p-grey">
+          Netflix'e katılmak ister misiniz? <a class="text-secondary" href="{% url 'register' %}">Şimdi kaydolun.</a>
+          <br /><br />
+          Bu sayfa robot olmadığınızı kanıtlamak için Google reCAPTCHA
+          tarafından korunuyor. Daha fazlasını öğrenin.
+        </p>
+      </form>
+    </div>
+  </div>
+  {% endblock content %}
+</body>
+
+</html>

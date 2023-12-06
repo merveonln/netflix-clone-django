@@ -1,0 +1,53 @@
+{% extends "index.html" %} {%load static%} {% block content %}
+<nav class="navbar">
+  <div class="container">
+    <a href="{%url 'index'%}" class="navbar-brand"><img class="logo" src="{% static 'img/netflix_logo.png' %}"
+        alt="" /></a>
+    <form class="d-flex" action="">
+      <div class="dropdown">
+        <a href="" class="btn text-white dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <span><img src="{% static 'img/world.png' %}" alt="" /></span>Türkçe
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li><a href="" class="dropdown-item">Türkçe</a></li>
+          <li><a href="" class="dropdown-item">İngilizce</a></li>
+        </ul>
+      </div>
+      <a href="{%url 'login'%}" class="btn btn-danger mx-3" role="button">Oturum Aç</a>
+    </form>
+  </div>
+</nav>
+
+<div class="container">
+  <form action="" method="POST" enctype="multipart/form-data" class="w-50 m-auto border text-light mt-4 p-3">
+    {%csrf_token%} {% comment %} {{form}} {% endcomment %}
+
+    <label for="isim">İsim</label>
+    <input type="text" name="isim" class="form-control" />
+
+    <label for="soyisim">Soyisim</label>
+    <input type="text" name="soyisim" class="form-control" />
+
+    <label for="email">Email</label>
+    <input type="email" name="email" class="form-control" />
+
+    <label for="resim">Resim</label>
+    <input type="file" name="resim" class="form-control" />
+
+    <label for="tel">Telefon Numarası</label>
+    <input type="tel" name="tel" class="form-control" />
+
+    <label for="dogum">Doğum Tarihi</label>
+    <input type="date" name="dogum" class="form-control" />
+
+    <label for="sifre1">Şifre</label>
+    <input type="password" name="sifre1" class="form-control" />
+
+    <label for="sifre2">Şifre Onay</label>
+    <input type="password" name="sifre2" class="form-control" />
+
+    <input type="submit" value="Kayıt Ol" class="btn btn-danger mt-3" />
+  </form>
+</div>
+{% endblock content %}
